@@ -34,3 +34,13 @@ def read_recipes(filename):
 
 
 cook_book = read_recipes('recipes.txt')
+
+
+def get_shop_list_by_dishes(dishes, person_count):
+    data = {}
+    for dish in dishes:
+        for ingridient in cook_book[dish]:
+            if ingridient['ingridient_name'] not in data:
+                data[ingridient['ingridient_name']] = {'measure': ingridient['measure'], 'quantity': 0}
+            data[ingridient['ingridient_name']]['quantity'] += ingridient['quantity'] * person_count
+    return data
