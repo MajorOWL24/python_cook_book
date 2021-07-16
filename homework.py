@@ -44,3 +44,12 @@ def get_shop_list_by_dishes(dishes, person_count):
                 data[ingridient['ingridient_name']] = {'measure': ingridient['measure'], 'quantity': 0}
             data[ingridient['ingridient_name']]['quantity'] += ingridient['quantity'] * person_count
     return data
+
+
+shop_list = get_shop_list_by_dishes(['Запеченный картофель', 'Омлет'], 2)
+print("{")
+for key in shop_list:
+    print("\t'" + key + "': ", end="")
+    print(shop_list[key], end="")
+    print(",")
+print("}")
